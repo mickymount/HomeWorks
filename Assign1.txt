@@ -1,0 +1,4 @@
+Linux centos7 3.10.0-514.2.2.el7.x86_64 #1 SMP Tue Dec 6 23:06:41 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+total 8
+-rw-rw-r--.  1 tiburu_m tiburu_m  106 Jan 11 15:38 Assign1.txt
+drwxrwxr-x. 18 tiburu_m tiburu_m 4096 Jan 11 15:27 UnixSysProgramming
