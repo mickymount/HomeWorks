@@ -1,0 +1,30 @@
+Bufsize = 1024
+real	0m12.199s
+user	0m0.044s
+sys	0m2.373s
+
+Bufsize = 2048
+real	0m4.749s
+user	0m0.032s
+sys	0m1.509s
+
+Bufsize = 3072
+real	0m4.991s
+user	0m0.018s
+sys	0m1.495s
+
+Bufsize = 4096
+real	0m5.139s
+user	0m0.008s
+sys	0m1.166s
+
+Bufsize = 512
+real	0m5.821s
+user	0m0.093s
+sys	0m2.926s
+
+Bufsize = 8192
+real	0m5.620s
+user	0m0.009s
+sys	0m1.861s
+
