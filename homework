@@ -1,0 +1,18 @@
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Fri 2017-02-24 15:43:11 UTC; 8min ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+ Main PID: 19219 (httpd)
+   Status: "Total requests: 2; Current requests/sec: 0; Current traffic:   0 B/sec"
+   CGroup: /system.slice/httpd.service
+           ├─19219 /usr/sbin/httpd -DFOREGROUND
+           ├─19220 /usr/sbin/httpd -DFOREGROUND
+           ├─19221 /usr/sbin/httpd -DFOREGROUND
+           ├─19222 /usr/sbin/httpd -DFOREGROUND
+           ├─19223 /usr/sbin/httpd -DFOREGROUND
+           ├─19224 /usr/sbin/httpd -DFOREGROUND
+           └─19247 /usr/sbin/httpd -DFOREGROUND
+
+Feb 24 15:43:10 centos7.c.course6225.internal systemd[1]: Starting The Apache HTTP Server...
+Feb 24 15:43:11 centos7.c.course6225.internal systemd[1]: Started The Apache HTTP Server.
