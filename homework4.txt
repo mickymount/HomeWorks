@@ -1,0 +1,25 @@
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Fri 2017-02-24 15:43:11 UTC; 8min ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+ Main PID: 19219 (httpd)
+   Status: "Total requests: 2; Current requests/sec: 0; Current traffic:   0 B/sec"
+   CGroup: /system.slice/httpd.service
+           ├─19219 /usr/sbin/httpd -DFOREGROUND
+           ├─19220 /usr/sbin/httpd -DFOREGROUND
+           ├─19221 /usr/sbin/httpd -DFOREGROUND
+           ├─19222 /usr/sbin/httpd -DFOREGROUND
+           ├─19223 /usr/sbin/httpd -DFOREGROUND
+           ├─19224 /usr/sbin/httpd -DFOREGROUND
+           └─19247 /usr/sbin/httpd -DFOREGROUND
+
+Feb 24 15:43:10 centos7.c.course6225.internal systemd[1]: Starting The Apache HTTP Server...
+Feb 24 15:43:11 centos7.c.course6225.internal systemd[1]: Started The Apache HTTP Server.
+#All the comments here are the solutions for the HomeWOrk No. 4
+#While setting up the VM for this course I installed java php and apache, I used the command sudo yum -y install ht#tpd, when the process was done I run the command httpd.service start to begin the apache server.
+#I also run http.service status > homework to output from the command to the homework file which is presented about
+#these comments. Afterwards I wrote a simple html file from my homepage at work with some few lines on php code to #display dynamic data like date as recommended from the homework question. 
+#This following links are the urls for the apache web server for homework 4
+#http://35.185.24.2
+#http://35.185.24.2/info.php
