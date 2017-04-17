@@ -1,0 +1,63 @@
+docker build -t gcr.io/eco-flash-155119/hello-node:v1 .
+Sending build context to Docker daemon 52.74 kB
+Step 1 : FROM node:6.9.2
+ ---> faaadb4aaf9b
+Step 2 : EXPOSE 8080
+ ---> Using cache
+ ---> 2748728c4304
+Step 3 : COPY server.js .
+ ---> 0ce88316f8a6
+Removing intermediate container cdd5cac0406a
+Step 4 : CMD node server.js
+ ---> Running in da972bb4f41b
+ ---> 891af70e0f08
+Removing intermediate container da972bb4f41b
+Successfully built 891af70e0f08
+sudo docker run -d -p 8080:8080 gcr.io/eco-flash-155119/hello-node:v1
+34d7067d8b8c655e3daccd3434f9616dd28a886abd02e032f925f1871690797a
+docker run -d -p 8080:8080 gcr.io/eco-flash-155119/hello-node:v1
+ab521f112064df56bd0a47024f590a4f4df436d014fd244894969aa0978ebf74
+docker ps
+
+CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                    NAMES
+ab521f112064        gcr.io/eco-flash-155119/hello-node:v1   "/bin/sh -c 'node ser"   6 minutes ago       Up 6 minutes        0.0.0.0:8080->8080/tcp   desperate_darwin
+docker stop ab521f112064
+ab521f112064
+gcloud docker -- push gcr.io/eco-flash-155119/hello-node:v1
+The push refers to a repository [gcr.io/eco-flash-155119/hello-node]
+649647e4a5fe: Pushed 
+381c97ba7dc3: Pushed 
+604c78617f34: Pushed 
+fa18e5ffd316: Pushed 
+0a5e2b2ddeaa: Pushed 
+53c779688d06: Pushed 
+60a0858edcd5: Pushed 
+b6ca02dfe5e6: Pushed 
+v1: digest: sha256:578d6692a4fe3596fdb74848d46e5f1072cf9d942e47de589ad6def0578b6b65 size: 2002
+gcloud container clusters create archimedes --num-nodes 2 --machine-type n1-standard-1 --zone us-east1-b
+Creating cluster archimedes...done.                                                                                                                
+Created [https://container.googleapis.com/v1/projects/eco-flash-155119/zones/us-east1-b/clusters/archimedes].
+kubeconfig entry generated for archimedes.
+NAME        ZONE        MASTER_VERSION  MASTER_IP      MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
+archimedes  us-east1-b  1.5.6           35.185.62.115  n1-standard-1  1.5.6         2          RUNNING
+kubectl run hello-node --image=gcr.io/eco-flash-155119/hello-node:v1 --port=8080
+deployment "hello-node" created
+ kubectl get deployments
+NAME         DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+hello-node   1         1         1            1           56s
+kubectl get pods
+NAME                          READY     STATUS    RESTARTS   AGE
+hello-node-1682819613-wjrm5   1/1       Running   0          1m
+kubectl cluster-info
+Kubernetes master is running at https://35.185.62.115
+GLBCDefaultBackend is running at https://35.185.62.115/api/v1/proxy/namespaces/kube-system/services/default-http-backend
+Heapster is running at https://35.185.62.115/api/v1/proxy/namespaces/kube-system/services/heapster
+KubeDNS is running at https://35.185.62.115/api/v1/proxy/namespaces/kube-system/services/kube-dns
+kubernetes-dashboard is running at https://35.185.62.115/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
+kubectl expose deployment hello-node --type="LoadBalancer"
+service "hello-node" exposed
+kubectl get services
+NAME         CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
+hello-node   10.3.245.40   104.196.191.12   8080:31135/TCP   1m
+kubernetes   10.3.240.1    <none>           443/TCP          16m
+
