@@ -1,0 +1,7 @@
+Topic: Using Kubernetes on Google COntainer Engine biuld a web app to convert a DOT code to a graphical language. This turns to be very useful when it comes to developing a pseudocde and also for UML representation. This app allows user to paste the DOT code and then render it to a graphical interpretation of the DOT. The project deploys a multi-tiered (Frontend and Backend ) web application on Google Container Engine. The cluster for this project has a three frontend containers running the Jetty server with a simple web application. The cluster also has a two backend containers that run a simple HTTP server and have the Graphviz application installed. Graphviz is consider a powerful open source layout and visualisation tool. Cloned a git repository for the configurations this app. The Cluster Configuration files which are in a diffenet files are:
+backend-controller.yaml-> this replication controller backend-contr for the backend Pods this deployed two Pods.
+frontend-controller.yaml-> this replication controller frontend-contr for the frontend pods this deployed three Pods.
+backend-service.yaml ->Service backend-service to load the backend Pods.
+frontend-service.yaml->Service frontend-service an external load balancer for the frontend Pods that allows Web traffic. In conclusion:
+This project demonstrated the deployment of a Kubernetes cluster on the Google Container Engine for a multi-tiered Web application. 
+IP for Web App: http://35.185.46.149:80

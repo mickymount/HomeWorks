@@ -1,0 +1,100 @@
+gcloud compute zones list
+NAME               REGION           STATUS  NEXT_MAINTENANCE  TURNDOWN_DATE
+asia-east1-a       asia-east1       UP
+asia-east1-b       asia-east1       UP
+asia-east1-c       asia-east1       UP
+asia-northeast1-a  asia-northeast1  UP
+asia-northeast1-c  asia-northeast1  UP
+asia-northeast1-b  asia-northeast1  UP
+asia-southeast1-b  asia-southeast1  UP
+asia-southeast1-a  asia-southeast1  UP
+europe-west1-d     europe-west1     UP
+europe-west1-c     europe-west1     UP
+europe-west1-b     europe-west1     UP
+us-central1-b      us-central1      UP
+us-central1-f      us-central1      UP
+us-central1-c      us-central1      UP
+us-central1-a      us-central1      UP
+us-east1-d         us-east1         UP
+us-east1-b         us-east1         UP
+us-east1-c         us-east1         UP
+us-west1-b         us-west1         UP
+us-west1-a         us-west1         UP
+gcloud config set compute/zone us-east1-b 
+Updated property [compute/zone].
+gcloud container clusters create graphviz-app
+Creating cluster graphviz-app...done.                                                                                                                 
+Created [https://container.googleapis.com/v1/projects/course6225/zones/us-east1-b/clusters/graphviz-app].
+kubeconfig entry generated for graphviz-app.
+NAME          ZONE        MASTER_VERSION  MASTER_IP     MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
+graphviz-app  us-east1-b  1.5.6           35.185.110.9  n1-standard-1  1.5.6         3          RUNNING
+gcloud container clusters describe graphviz-app
+clusterIpv4Cidr: 10.40.0.0/14
+createTime: '2017-04-20T01:32:51+00:00'
+currentMasterVersion: 1.5.6
+currentNodeCount: 3
+currentNodeVersion: 1.5.6
+endpoint: 35.185.110.9
+initialClusterVersion: 1.5.6
+instanceGroupUrls:
+- https://www.googleapis.com/compute/v1/projects/course6225/zones/us-east1-b/instanceGroupManagers/gke-graphviz-app-default-pool-4769585a-grp
+legacyAbac:
+  enabled: true
+locations:
+- us-east1-b
+loggingService: logging.googleapis.com
+masterAuth:
+  clientCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMyekNDQWNPZ0F3SUJBZ0lSQUlGbXN0SmNPNU0wQkl5Y1RDYWVTRTh3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1l6QXdaakk0TVRrdFpqUXlNQzAwTVdWakxXSmtNV010WkdNd01qUmlZalUxT0RZNQpNQjRYRFRFM01EUXlNREF4TXpJMU1sb1hEVEl5TURReE9UQXhNekkxTWxvd0VURVBNQTBHQTFVRUF4TUdZMnhwClpXNTBNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQXJaUldkWlZ3aDFtTHBhWFQKSkJKL2p1dFRxSE03UUhHMUJkL1EwUFdtT3lhb3N2eFJqTDRsci9iUGE3dmxZZE41SFdxMzJONFhkQi9MQjVMNwp6TzB2NTg4SlBmZmNzR3VMUG9hb0pkSVJUbndVeVJORk1XekVEYVlFZ0dybmZ6Zy9Tc05CTjd2ZFY3R2xiTjl4CjZGREdkWkREWEQyMDFBQURHKy9WZzZMV2FoN0NnT3JFdTBMUzhMZmJDeEZrRkhRQksveEJqMWI5R2F3MG0rSTQKMEVPRi84Rjl5ejNsSENHbFpXRVhhbWdzaCthVHhqVHNiNlR1elBpWHBBKzdCWHNzRDdGQWdjOVZYemV2djkwUApCRk01ay95K2huZ3Nwd3VHajlPWk9acnphUkhZZjZ0a3RaQ0hpWlY0VU0vYUs1d3FNdVNDSzR4Vm16bGFyZjZ5ClRiUFV3d0lEQVFBQm94QXdEakFNQmdOVkhSTUJBZjhFQWpBQU1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQmUKUXZXZ1A5MHA5L3ltTWtFTTI3RDRKK29pRzNzSklmNEF2TkdoOGZGUGZwQzZJNDlsKzErRU10MXZ2QVdsd1MrOApzclNVZWRUaUQ2dlBBdDZUNm1UaGJHeU10Mm0vNVFYbTEzVU1hTlpKNHRtT0RyVkdzYUVNT3JPTngzWGVFL0JuCk9NUVBsRUx5QjBpOE52U2NMdmxsbVFtTXpjcnBlZWdZM1c5Mkk2NkdTbyt1dTVhczlNWWtqNjgxTkpRTTMyb0UKdjM2SStLZ1R4Zm9oOG1yVWdDZDVyaUkzaXNsVWtHS0F5aitvT3JrTk1QV05WUktJR2hnY0pVcEovK3BNQkMzWgpkTnp1UnRiY1ZBTFhRdk1BcjVZbUtsVlhKZU9CTk03UjJrcllydCtWUHROVzJ3NklyLy9JYlVseEJ2RDRoWU1GCklpRDVlNTBWWkh6SUU4RmZ1am1OCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  clientKey: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcFFJQkFBS0NBUUVBclpSV2RaVndoMW1McGFYVEpCSi9qdXRUcUhNN1FIRzFCZC9RMFBXbU95YW9zdnhSCmpMNGxyL2JQYTd2bFlkTjVIV3EzMk40WGRCL0xCNUw3ek8wdjU4OEpQZmZjc0d1TFBvYW9KZElSVG53VXlSTkYKTVd6RURhWUVnR3JuZnpnL1NzTkJON3ZkVjdHbGJOOXg2RkRHZFpERFhEMjAxQUFERysvVmc2TFdhaDdDZ09yRQp1MExTOExmYkN4RmtGSFFCSy94QmoxYjlHYXcwbStJNDBFT0YvOEY5eXozbEhDR2xaV0VYYW1nc2grYVR4alRzCmI2VHV6UGlYcEErN0JYc3NEN0ZBZ2M5Vlh6ZXZ2OTBQQkZNNWsveStobmdzcHd1R2o5T1pPWnJ6YVJIWWY2dGsKdFpDSGlaVjRVTS9hSzV3cU11U0NLNHhWbXpsYXJmNnlUYlBVd3dJREFRQUJBb0lCQUdWM2Z3c0JMbVNRZmNkNQpKZkhDTm5xdktab2dzaFE3NDl2cE44SE90enVBbjhEeEtpS2h6Sm9PSnJZTmdrc3JPWE51dk1XekhmYXQxeHM0CldxVXlTWHl5VSs2N2czQkZqWUloYVEyaXZLY3FkV1FOTmJkc296WnZROVpscDZtQWtjNzhVSlZwNWp1ckJzNmIKMTVROEU2Y0oxb21ITUx0MHZseUlXRUc0NEtuckZpejJGRzJ1d3hmK0dWTDJMWEtnRmNKYkEwT2RiRzcwZUZNaApKUnY1eDFad2MxTHZlYkJQT0VDQnI2SEVPNFgzelRyS1EvRUQrSHBoOGRXSFR0VHIwUnZMQ3ZMLy80NXFKT0hpCmEzb1cxWk4wZEhZQi9CM3ZXdUV3RG42alEvSlEvK2VvNnd5Q2Z1ZVh6NFJodnRsTnplZ2gxbkFKUldhSFdOS3EKd1dzWmVyRUNnWUVBNGlGVVJ6RmJNVmd5Y2xHdWdHWHIxSlZ4aFlxbW5leVE4bE94cEFWOUpaQW15TCtJWVNTbwpkRC8rMDNPYzJRQ0tmV1hWenB1S1ZPYkpaNGp6dU9PR000NHFlS214MktlZ3VHdFF2YTJPR3h5ZFc5Zzc0VzJhCk1iRWZYRzlWUW0yL0JrTVVXWXhsbW1Wb2d0OXJCVXEwdzkrVXJSN3NKTFBoclpKK0RtZ0YyaDBDZ1lFQXhJSDgKblNKak9PNmZJLzc2dVBhRVlFUW9Nd290WHYvN09vaDluUTZzdjNVTGoxa2dDbjhzRENRZ3c2NHI3a2JhWUJyMQplalc0VHJoNWNNU0RIVDk5REttWHZFVW1yYWZmOS9WTmlPdE5mb1FpdVU2bUJWUG9neGc3am9ZUzhSdXZ0NjA4Ck5uQjhDbFJCd3BiUjRRR3lSODBOWGJDKzVMYU9kbGJIRHRzQ05GOENnWUVBaDY1TjNrVzhIUGg1bEdSMFd2Qk0KdDRwUHlqdnVTMVcxaHVFMjlsNmd2NWdsM1ZBbktYcVFaT2c5STJ6OFVLeGxiR1pkQ3BJRFIzd09uc1BxMFNZYgowUFZkZ0hiNWtqREtXNzF3ZmM4VU5DcFFOTnFpMjFrakt1dkhFSFJ3Nk9IbXU0QW1SckRhQ2ZFTTYzSFl5aDBRCkozTVF4MnVGYjJSTFpoVSs4Ni93eXZVQ2dZRUFseXl4SEduQ0Q2Qnp5WXQxY3lvak9MUDJnUjJKUGhhTVBjR1gKY1daQ3U1L2Qzcy9mK0hOUmZaMmxueVMxSTBCYTY2aVJ4UXppMTV6UHdGTk4wd2h1dVhrWEJIM21mWjR5alYybgo0bmV6VEd0M0V6eFFPTFVPb1J2WlpaSDdySVZ5TDBvVWtvVUN5Q2Q5MTZlVG14aGxBUnZjOW9Ec3VxTS9BZ2RNCmFEOVFlTjBDZ1lFQWpaQ2tzaUYvMFJTQ2t6Z3l1UmxWdDRsTDlTK0xuV2ZYbjFtajl0d1Y1dDg2WlRWMC9Oc0gKV240eXh1eloxTFhlRDEyaHpJS3IvMFdmajNwQkFSS0VUUFp2c241NUJDNjJRT21GSjJnN0kwQi9hcllkTjZCZgpWUm43a25uR2FZR2lsaXdEaGk1bnFRMHFzOGgxK0xDUXRMYTVtZlJCUVBPR1FEeWlEL3RBb0dvPQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+  clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURERENDQWZTZ0F3SUJBZ0lSQUtKWkw3OTRFMHdNNnF4MGdWeEFxd1l3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1l6QXdaakk0TVRrdFpqUXlNQzAwTVdWakxXSmtNV010WkdNd01qUmlZalUxT0RZNQpNQjRYRFRFM01EUXlNREF4TXpJMU1Wb1hEVEl5TURReE9UQXhNekkxTVZvd0x6RXRNQ3NHQTFVRUF4TWtZekF3ClpqSTRNVGt0WmpReU1DMDBNV1ZqTFdKa01XTXRaR013TWpSaVlqVTFPRFk1TUlJQklqQU5CZ2txaGtpRzl3MEIKQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBNlJOMEZ3RUVLaEQrUDE2TkJMUHJmczFVNWNJYnoxaWRLT0duelJCaApqUnNkbEF5T0kxZkwxMlRYeWpRUElydmlhT1l2NURrdnd0QkRSVnRQQ2VuUXJGOXpiSThMamVaUVFsQXIyeEYzCnZIcEhaa2dEcnFLeWZQOHB2dzBpQVJSSXIrVWV3SkorYktKNkw0VnFzdmduMFYxLzNNa2o2NjloS3g3eU1EeloKdTJLU1U3YzNSN2lWYnlQQ0hEblVxQmFXNGJPczMzTkhLUVhnTWJRWEdCejlkbzhWNmJaK2ZoMDVyZHd6YkRiQQpNaExFQ1djbE5GZjU4UjdyNlJjWmFNd0t2RytDUUN1L3JhZWpzT29WYXNoL1FuTDhCT3lXb1A1YTY3NmxmbFBpCmxhU3l4eVViM1hyRG5kdXZFalJsN2ltYU9tc1hndm1zd1BiQkJsRDdtL1dvRXdJREFRQUJveU13SVRBT0JnTlYKSFE4QkFmOEVCQU1DQWdRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBTkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQQpPK0JOcTk3V203eFdWUWtVaTc1eUZkcHI2UWxPOWJ3dGcxU3UxQWlQaWVlYS9kSXJwbHFtZTAwVmV2TXQzVmROCmNZRFFDcWRTcWZ3cWlvWDRTV2tONUxFNkk3cUtoU1dXMVljNFJCMXNuYXZCRkpOQTFieDJhVWpBSDJsUy9XdW0KUHRDWmZDY05rZHhSbEo0SGh0Y3U0S1lNK3hWU2NvZE9lTC82VXJ5WDFPdHZpdzZxSEZpdmE3NUljVXpkWXJrawpmb2lHYTNFTVFyV1ZsKzNXdTFKSFpycnVIVlMyQ3lYcGJGRlU4UlNnNDVIeDFWa25pY0s0TFd6SHRVbHZFdWhvClNBZXI5OHczSnpZam55c3NtMVp4d2RUZ1R5c0JmWHZ4U2xtVzlqd3hVZGxPSW1YZjBtRjFVTnBvVWVkWlVEcVUKNUl2TzUycVN1TTBZZ2Y1TFc3ZWY2QT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  password: rucQX5UoLxLOHZRu
+  username: admin
+monitoringService: monitoring.googleapis.com
+name: graphviz-app
+network: default
+nodeConfig:
+  diskSizeGb: 100
+  imageType: COS
+  machineType: n1-standard-1
+  oauthScopes:
+  - https://www.googleapis.com/auth/compute
+  - https://www.googleapis.com/auth/devstorage.read_only
+  - https://www.googleapis.com/auth/service.management.readonly
+  - https://www.googleapis.com/auth/servicecontrol
+  - https://www.googleapis.com/auth/logging.write
+  - https://www.googleapis.com/auth/monitoring
+  serviceAccount: default
+nodeIpv4CidrSize: 24
+nodePools:
+- config:
+    diskSizeGb: 100
+    imageType: COS
+    machineType: n1-standard-1
+    oauthScopes:
+    - https://www.googleapis.com/auth/compute
+    - https://www.googleapis.com/auth/devstorage.read_only
+    - https://www.googleapis.com/auth/service.management.readonly
+    - https://www.googleapis.com/auth/servicecontrol
+    - https://www.googleapis.com/auth/logging.write
+    - https://www.googleapis.com/auth/monitoring
+    serviceAccount: default
+  initialNodeCount: 3
+  instanceGroupUrls:
+  - https://www.googleapis.com/compute/v1/projects/course6225/zones/us-east1-b/instanceGroupManagers/gke-graphviz-app-default-pool-4769585a-grp
+  management: {}
+  name: default-pool
+  selfLink: https://container.googleapis.com/v1/projects/course6225/zones/us-east1-b/clusters/graphviz-app/nodePools/default-pool
+  status: RUNNING
+  version: 1.5.6
+selfLink: https://container.googleapis.com/v1/projects/course6225/zones/us-east1-b/clusters/graphviz-app
+servicesIpv4Cidr: 10.43.240.0/20
+status: RUNNING
+zone: us-east1-b
+kubectl cluster-info
+Kubernetes master is running at https://35.185.110.9
+GLBCDefaultBackend is running at https://35.185.110.9/api/v1/proxy/namespaces/kube-system/services/default-http-backend
+Heapster is running at https://35.185.110.9/api/v1/proxy/namespaces/kube-system/services/heapster
+KubeDNS is running at https://35.185.110.9/api/v1/proxy/namespaces/kube-system/services/kube-dns
+kubernetes-dashboard is running at https://35.185.110.9/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+git clone https://github.com/omerio/kubernetes-graphviz.gitCloning into 'kubernetes-graphviz'...remote: Counting objects: 40, done.remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40Unpacking objects: 100% (40/40), done.cd kubernetes-graphviz/kubectl create -f backend-controller.yaml replicationcontroller "backend-contr" createdkubectl get rcNAME            DESIRED   CURRENT   READY     AGEbackend-contr   2         2         0         12skubectl get pods -o wide NAME READY STATUS RESTARTS AGE IP NODEbackend-contr-pmgcc 1/1 Running 0 2m 10.40.1.6 gke-graphviz-app-default-pool-4769585a-jkpfbackend-contr-tn6ll 1/1 Running 0 2m 10.40.0.5 gke-graphviz-app-default-pool-4769585a-7nvvgcloud compute ssh gke-graphviz-app-default-pool-4769585a-jkpfWarning: Permanently added 'compute.7170882776954417460' (RSA) to the list of known hosts.Welcome to Kubernetes v1.5.6!You can find documentation for Kubernetes at:  http://docs.kubernetes.io/The source for this release can be found at:  /home/kubernetes/kubernetes-src.tar.gzOr you can download it at:  https://storage.googleapis.com/kubernetes-release/release/v1.5.6/kubernetes-src.tar.gzIt is based on the Kubernetes source at:  https://github.com/kubernetes/kubernetes/tree/v1.5.6For Kubernetes copyright and licensing information, see:  /home/kubernetes/LICENSESsudo docker psCONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES c135ac4cfb34 omerio/graphviz-webapp "/docker-entrypoint.b" 11 minutes ago Up 11 minutes k8s_webapp.dde6cab3_frontend-contr-ldrjv_default_744d9a25-256d-11e7-94bd-42010a8e0156_d9108d85 43e270548987 gcr.io/google_containers/pause-amd64:3.0 "/pause" 11 minutes ago Up 11 minutes k8s_POD.d8dbe16c_frontend-contr-ldrjv_default_744d9a25-256d-11e7-94bd-42010a8e0156_bf23c864 07c937fa82d0 gcr.io/google_containers/exechealthz-amd64:1.2 "/exechealthz '--cmd=" 37 minutes ago Up 37 minutes k8s_healthz.e3e73f81_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_d691c3d0 9469d894f914 gcr.io/google_containers/dnsmasq-metrics-amd64:1.0.1 "/dnsmasq-metrics --v" 37 minutes ago Up 37 minutes k8s_dnsmasq-metrics.43c11f12_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_45383a1d 67d2f3276019 gcr.io/google_containers/kube-dnsmasq-amd64:1.4.1 "/usr/sbin/dnsmasq --" 37 minutes ago Up 37 minutes k8s_dnsmasq.5a2b8a8d_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_387b5c18f668ce9c4ad8 gcr.io/google_containers/kubedns-amd64:1.9 "/kube-dns --domain=c" 37 minutes ago Up 37 minutes k8s_kubedns.4d43a23b_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_20ed18fa08b6e598731e gcr.io/google_containers/pause-amd64:3.0 "/pause" 37 minutes ago Up 37 minutes k8s_POD.d8dbe16c_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_13bbd2748c3133325eb4 gcr.io/google_containers/fluentd-gcp:1.28.2 "/bin/sh -c 'rm /lib/" 38 minutes ago Up 38 minutes k8s_fluentd-cloud-logging.6aa6c538_fluentd-cloud-logging-gke-graphviz-app-default-pool-4769585a-4lwt_kube-system_51229922e92873f29e001ebdfb62368e_1d115ec01db0414e08ca gcr.io/google_containers/pause-amd64:3.0 "/pause" 38 minutes ago Up 38 minutes Connection to 35.185.83.167 closed.kubectl create -f frontend-service.yamlservice "frontend-service" createdkubectl get servicesNAME CLUSTER-IP EXTERNAL-IP PORT(S) AGEbackend-service 10.43.240.29 <none> 80/TCP 19mfrontend-service 10.43.251.179 <pending> 80:31220/TCP 6skubernetes 10.43.240.1 <none> 443/TCP 55mkubectl describe services frontendName: frontend-service Namespace: default Labels: app=graphviz tier=frontendAnnotations: <none>Selector: app=graphviz,tier=frontendType: LoadBalancerIP: 10.43.251.179Port: <unset> 80/TCPNodePort: <unset> 31220/TCPEndpoints: 10.40.0.6:8080,10.40.0.7:8080,10.40.1.7:8080 + 2 more...Session Affinity: NoneEvents: FirstSeen LastSeen Count From SubObjectPath Type Reason Message --------- -------- ----- ---- ------------- -------- ------ ------- 52s 52s 1 service-controller Normal CreatingLoadBalancer Creating load balancer
