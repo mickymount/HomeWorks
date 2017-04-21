@@ -4,4 +4,3 @@ frontend-controller.yaml-> this replication controller frontend-contr for the fr
 backend-service.yaml ->Service backend-service to load the backend Pods.
 frontend-service.yaml->Service frontend-service an external load balancer for the frontend Pods that allows Web traffic. In conclusion:
 This project demonstrated the deployment of a Kubernetes cluster on the Google Container Engine for a multi-tiered Web application. 
-IP for Web App: http://35.185.46.149:80
