@@ -21,7 +21,7 @@ Solution:
 
 This is to make the designing process of pictorial representation of software much easy, straight forward and simple. Softwaredesigners would save this in a PDF format and can easily be inserted into powerpoint presentations for meetings and other appointments during the designing life cycle. This software would also make editing of the pictorial representation simple, by making all the necessary tweaks in the DOT language which will then be influenced in the pictorial representation when rendered.This also cut the cords from doing sketches on white boards, which often times make editing difficult when there is no enough room to write.
 
-Discusion of project:
+Project Discussion:
 
 Using Kubernetes on Google Container Engine biuld a web app to convert a DOT code to a graphical form. 
 This turns to be very useful when it comes to developing pseudocde which happens to be one of the basic requirement for designing applications and also for UML representation. 
@@ -37,4 +37,4 @@ backend-service.yaml ->Service backend-service to load the backend Pods.
 frontend-service.yaml->Service frontend-service an external load balancer for the frontend Pods that allows Web traffic.
 
 Conclusion:
-This project demonstrated the deployment of a Kubernetes cluster on the Google Container Engine for a multi-tiered Web application. Using kubernetes is very helpful since no down time of the application is required while deploying a new version of the web application. It also garantees a realiable means of running the application anything when requested. Time involved creating and deploying acluster is very minimal while using GKE or Minikude. This could be because there is no physical orchestration of peripherals of Servers to accomplish the same effect.  
+This project demonstrated the deployment of a Kubernetes cluster on the Google Container Engine for a multi-tiered Web application. Using kubernetes is very helpful since no down time of the application is required while deploying a new version of the web application. It also garantees a realiable means of running the application anything when requested. Time involved creating and deploying acluster is very minimal while using GKE or Minikude. This could be because there is no physical orchestrationof Servers to accomplish the same effect, using GKE seems cheaper and simpler to represent. All commands and precedures to accomplish this project is located in finalproject.txt.   
