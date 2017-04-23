@@ -23,8 +23,7 @@ us-west1-a         us-west1         UP
 gcloud config set compute/zone us-east1-b 
 Updated property [compute/zone].
 gcloud container clusters create graphviz-app
-Creating cluster graphviz-app...done.                                                                                                                 
-Created [https://container.googleapis.com/v1/projects/course6225/zones/us-east1-b/clusters/graphviz-app].
+Creating cluster graphviz-app...done.                                                                                         Created [https://container.googleapis.com/v1/projects/course6225/zones/us-east1-b/clusters/graphviz-app].
 kubeconfig entry generated for graphviz-app.
 NAME          ZONE        MASTER_VERSION  MASTER_IP     MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
 graphviz-app  us-east1-b  1.5.6           35.185.110.9  n1-standard-1  1.5.6         3          RUNNING
@@ -97,4 +96,46 @@ Heapster is running at https://35.185.110.9/api/v1/proxy/namespaces/kube-system/
 KubeDNS is running at https://35.185.110.9/api/v1/proxy/namespaces/kube-system/services/kube-dns
 kubernetes-dashboard is running at https://35.185.110.9/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+git clone https://github.com/omerio/kubernetes-graphviz.git
+Cloning into 'kubernetes-graphviz'...
+remote: Counting objects: 40, done.
+remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
+Unpacking objects: 100% (40/40), done.
+cd kubernetes-graphviz/
+kubectl create -f backend-controller.yaml 
+replicationcontroller "backend-contr" created 
+kubectl get rc
+NAME            DESIRED   CURRENT   READY     AGE
+backend-contr   2         2         0         12s
+kubectl get pods -o wide 
+NAME READY STATUS RESTARTS AGE IP NODEbackend-contr-pmgcc 1/1 Running 0 2m 10.40.1.6 
+gke-graphviz-app-default-pool-4769585a-jkpfbackend-contr-tn6ll 1/1 
+Running 0 2m 10.40.0.5 gke-graphviz-app-default-pool-4769585a-7nvv
+gcloud compute ssh gke-graphviz-app-default-pool-4769585a-jkpf
+Warning: Permanently added 'compute.7170882776954417460' (RSA) to the list of known hosts.
+Welcome to Kubernetes v1.5.6!You can find documentation for Kubernetes at: http://docs.kubernetes.io/
+The source for this release can be found at: /home/kubernetes/kubernetes-src.tar.gz 
+Or you can download it at: https://storage.googleapis.com/kubernetes-release/release/v1.5.6/kubernetes-src.tar.gz
+It is based on the Kubernetes source at: https://github.com/kubernetes/kubernetes/tree/v1.5.6 
+For Kubernetes copyright and licensing information, see:  /home/kubernetes/LICENSES
+sudo docker ps
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 
+c135ac4cfb34 omerio/graphviz-webapp "/docker-entrypoint.b" 11 minutes ago Up 11 minutes k8s_webapp.dde6cab3_frontend-contr-ldrjv_default_744d9a25-256d-11e7-94bd-42010a8e0156_d9108d85 
+43e270548987 gcr.io/google_containers/pause-amd64:3.0 "/pause" 11 minutes ago Up 11 minutes k8s_POD.d8dbe16c_frontend-contr-ldrjv_default_744d9a25-256d-11e7-94bd-42010a8e0156_bf23c864 
+07c937fa82d0 gcr.io/google_containers/exechealthz-amd64:1.2 "/exechealthz '--cmd=" 37 minutes ago Up 37 minutes k8s_healthz.e3e73f81_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_d691c3d0 
+9469d894f914 gcr.io/google_containers/dnsmasq-metrics-amd64:1.0.1 "/dnsmasq-metrics --v" 37 minutes ago Up 37 minutes k8s_dnsmasq-metrics.43c11f12_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_45383a1d 
+67d2f3276019 gcr.io/google_containers/kube-dnsmasq-amd64:1.4.1 "/usr/sbin/dnsmasq --" 37 minutes ago Up 37 minutes k8s_dnsmasq.5a2b8a8d_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_387b5c18
+f668ce9c4ad8 gcr.io/google_containers/kubedns-amd64:1.9 "/kube-dns --domain=c" 37 minutes ago Up 37 minutes k8s_kubedns.4d43a23b_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_20ed18fa
+08b6e598731e gcr.io/google_containers/pause-amd64:3.0 "/pause" 37 minutes ago Up 37 minutes k8s_POD.d8dbe16c_kube-dns-2185667875-kn72p_kube-system_afd6c689-2569-11e7-94bd-42010a8e0156_13bbd274
+8c3133325eb4 gcr.io/google_containers/fluentd-gcp:1.28.2 "/bin/sh -c 'rm /lib/" 38 minutes ago Up 38 minutes k8s_fluentd-cloud-logging.6aa6c538_fluentd-cloud-logging-gke-graphviz-app-default-pool-4769585a-4lwt_kube-system_51229922e92873f29e001ebdfb62368e_1d115ec0
+1db0414e08ca gcr.io/google_containers/pause-amd64:3.0 "/pause" 38 minutes ago Up 38 minutes Connection to 35.185.83.167 close.
+kubectl create -f frontend-service.yaml
+service "frontend-service" created
+kubectl get services
+NAME CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+backend-service 10.43.240.29 <none> 80/TCP 19m
+frontend-service 10.43.251.179 <pending> 80:31220/TCP 6s
+kubernetes 10.43.240.1 <none> 443/TCP 55m
+kubectl describe services 
+frontendName: frontend-service Namespace: default Labels: app=graphviz tier=frontendAnnotations: <none>Selector: app=graphviz,tier=frontendType: LoadBalancerIP: 10.43.251.179Port: <unset> 80/TCPNodePort: <unset> 31220/TCPEndpoints: 10.40.0.6:8080,10.40.0.7:8080,10.40.1.7:8080 + 2 more...Session Affinity: NoneEvents: FirstSeen LastSeen Count From SubObjectPath Type Reason Message --------- -------- ----- ---- ------------- -------- ------ ------- 52s 52s 1 service-controller Normal CreatingLoadBalancer Creating load balancer
 IP for Web App: http://35.185.46.149:80
