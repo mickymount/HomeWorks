@@ -1,5 +1,9 @@
+Problem: It is often times very hard to design Pseudo code and UMLs, which is required in every software designing process.
+Software designers are required to have some kind of knowledge in pictorial language since this very important in software development.
+Objective: To design a web app that takes in DOT source code and convert it into Pseudo code or UML. 
+Designers would paste their source code into this web app and then render it to Pseudo code or UMLs.
+Solution: This is to make the designing process of pictorial representation of software much easy and straight forward and simple. Software Designers would save this in a PDF format and can easily be inserted into powerpoint presentations for meetings and other appointments during the designing process. This software would also make editting of the pictorial representation simple, by making all the necessary tweaks in the DOT language which will then be influenced in the pictorial representation when rendered. This also cut the cords from doing sketches on white boards, which often times make editting difficult when there is no enough room to write.
 Table of Contents:
-
  Introduction
  Example Multi-tier Web App
  Optional interlude: Container Patterns
@@ -27,4 +31,4 @@ frontend-service.yaml->Service frontend-service an external load balancer for th
 In conclusion:
 This project demonstrated the deployment of a Kubernetes cluster on the Google Container Engine for a multi-tiered Web application. 
 Using kubernetes is very helpful since no down time of the application is required while deploying a new version of the web application. 
-It also garantees a realiable means of running the application anything when requested. Time involved creating and deploying a cluster is very minimal. 
+It also garantees a realiable means of running the application anything when requested. Time involved creating and deploying a cluster is very minimal while using GKE or Minikude. This could be because there is no physical orchestration of peripherals of Servers to accomplish the same effect.  
